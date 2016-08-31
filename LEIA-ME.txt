@@ -1,1 +1,6 @@
 P1-HemoSystem
+
+Gerente de Projeto: @marcocmm 
+Analista: @MYonemoto
+Programador: @lpbaiser
+Testador: @rmeloca
