@@ -1,0 +1,6 @@
+Está pasta contém os arquivos referêntes ao planejamento do projeto.
+
+Arquivos:
+P1-HemoSystem - Business case 
+PGP01 - Plano de gerênciamento
+TDA01 - Termo de Abertura
