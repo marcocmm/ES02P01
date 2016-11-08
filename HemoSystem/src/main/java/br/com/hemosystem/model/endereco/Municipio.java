@@ -10,7 +10,7 @@ package br.com.hemosystem.model.endereco;
  *
  * @author Leonardo Baiser <lpbaiser@gmail.com>
  */
-class Municipio {
+public class Municipio {
     
     private String nome;
     private UF uf;

@@ -22,6 +22,7 @@
                     <input type="text" placeholder="username"/>
                     <input type="password" placeholder="password"/>
                     <button>login</button>
+                    <a href="crudDoador.jsp"/>Entrar</a>
                 </form>
             </div>
         </div>

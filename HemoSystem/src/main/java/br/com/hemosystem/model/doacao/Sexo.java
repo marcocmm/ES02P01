@@ -6,7 +6,7 @@ package br.com.hemosystem.model.doacao;
  * @since 29/10/2016
  * @version 1.0
  */
-enum Sexo {
+public enum Sexo {
     
-    FEMENINO, MASCULINO
+    FEMENINO, MASCULINO, OUTRO
 }

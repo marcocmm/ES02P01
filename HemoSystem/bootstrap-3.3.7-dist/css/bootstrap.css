@@ -2546,19 +2546,9 @@ output {
   line-height: 1.42857143;
   color: #555;
 }
-.form{
-    background-color: #c45b58;
-    width: 70%;
-    margin-left: 15%;
-    margin-right: 15%;
-}
-.form input {
-    max-width: 50%;
-}
 .form-control {
   display: block;
   width: 100%;
-  max-width: 50%;
   height: 34px;
   padding: 6px 12px;
   font-size: 14px;
