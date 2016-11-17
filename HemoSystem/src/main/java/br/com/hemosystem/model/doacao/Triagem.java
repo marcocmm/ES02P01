@@ -6,12 +6,22 @@
 
 package br.com.hemosystem.model.doacao;
 
+import java.io.Serializable;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
 /**
  *
  * @author Leonardo Baiser <lpbaiser@gmail.com>
  */
-class Triagem {
+@Entity
+class Triagem implements Serializable{
     
+    @Id
+    @GeneratedValue(strategy=GenerationType.AUTO)
+    private int idTriagem;
     private float peso;
     private String hematocrito;
     private String hemoglobina;

@@ -1,32 +1,50 @@
 package br.com.hemosystem.model.doacao;
 
 import br.com.hemosystem.model.endereco.Endereco;
+import java.io.Serializable;
 import java.util.Collection;
 import java.util.Date;
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.ForeignKey;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+import org.eclipse.persistence.annotations.CascadeOnDelete;
 
 /**
  *
  * @author Leonardo Baiser <lpbaiser@gmail.com>
  * @version 1.0
  */
-public class Doador {
+@Entity
+public class Doador implements Serializable{
     
+    @Id
+    @GeneratedValue(strategy=GenerationType.AUTO)
+    private int codDoador;
     private String nomeDoador;
     private String nomePai;
     private String nomeMae;
     private Sexo sexo;
+    @Temporal(TemporalType.DATE)
     private Date dataNasc;
     private String profissao;
     private String escolaridade;
     private String email;
     private String telefone;
+    
+    @OneToOne(cascade = CascadeType.ALL, mappedBy = "doador")
     private Endereco enderecoComercial;
+    @OneToOne(cascade = CascadeType.ALL, mappedBy = "doador")
     private Endereco enderecoResidencial;
     private EstadoCivil estadoCivil;
     private String trabalhoAtual;
     private TipoDocumento tipoDocumento;
     private String numDocumento;
-    private int codDoador;
     private Collection<Doacao> doacoes;
     private Triagem ultimaDoacao;
 

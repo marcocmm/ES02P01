@@ -6,20 +6,29 @@
 
 package br.com.hemosystem.model.doacao;
 
+import java.io.Serializable;
 import java.util.Date;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+import org.eclipse.persistence.annotations.PrimaryKey;
 
 /**
  *
  * @author Leonardo Baiser <lpbaiser@gmail.com>
  */
-public class Doacao {
+@Entity
+public class Doacao implements Serializable{
     
+    @Id
+    private String codDoacao;
     private TipoDoacao tipoDoacao;
     private String nomeHospital;
     private Procedimento procedimento;
     private String nomeRespCad;
+    @Temporal(TemporalType.DATE)
     private Date data;
-    private String codDoacao;
     
 
     public TipoDoacao getTipoDoacao() {

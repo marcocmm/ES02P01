@@ -6,14 +6,21 @@
 
 package br.com.hemosystem.model.endereco;
 
+import java.io.Serializable;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
 /**
  *
  * @author Leonardo Baiser <lpbaiser@gmail.com>
+ * @version 1.0
  */
-public class Municipio {
+//@Entity
+class Estado implements Serializable{
     
+    @Id
+    private String sigla;
     private String nome;
-    private UF uf;
 
     public String getNome() {
         return nome;
@@ -23,12 +30,12 @@ public class Municipio {
         this.nome = nome;
     }
 
-    public UF getUf() {
-        return uf;
+    public String getSigla() {
+        return sigla;
     }
 
-    public void setUf(UF uf) {
-        this.uf = uf;
+    public void setSigla(String sigla) {
+        this.sigla = sigla;
     }
     
 }
