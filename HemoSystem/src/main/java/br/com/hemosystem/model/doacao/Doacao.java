@@ -9,6 +9,8 @@ package br.com.hemosystem.model.doacao;
 import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -22,6 +24,7 @@ import org.eclipse.persistence.annotations.PrimaryKey;
 public class Doacao implements Serializable{
     
     @Id
+    @GeneratedValue(strategy=GenerationType.AUTO)
     private String codDoacao;
     private TipoDoacao tipoDoacao;
     private String nomeHospital;
@@ -75,8 +78,5 @@ public class Doacao implements Serializable{
         return codDoacao;
     }
 
-    public void setCodDoacao(String codDoacao) {
-        this.codDoacao = codDoacao;
-    }
 
 }

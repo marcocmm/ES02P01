@@ -5,11 +5,15 @@ import java.io.Serializable;
 import java.util.Collection;
 import java.util.Date;
 import javax.persistence.CascadeType;
+import javax.persistence.CollectionTable;
+import javax.persistence.Column;
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.ForeignKey;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -44,7 +48,11 @@ public class Doador implements Serializable{
     private EstadoCivil estadoCivil;
     private String trabalhoAtual;
     private TipoDocumento tipoDocumento;
+    @Column(unique = true)
     private String numDocumento;
+    
+    @ElementCollection
+    @CollectionTable(name = "doacoes", joinColumns = @JoinColumn(name = "codDoador"))
     private Collection<Doacao> doacoes;
     private Triagem ultimaDoacao;
 
@@ -172,9 +180,6 @@ public class Doador implements Serializable{
         return codDoador;
     }
 
-    public void setCodDoador(int codDoador) {
-        this.codDoador = codDoador;
-    }
 
     public Collection<Doacao> getDoacoes() {
         return doacoes;

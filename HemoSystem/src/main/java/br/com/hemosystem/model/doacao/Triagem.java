@@ -17,7 +17,7 @@ import javax.persistence.Id;
  * @author Leonardo Baiser <lpbaiser@gmail.com>
  */
 @Entity
-class Triagem implements Serializable{
+public class Triagem implements Serializable{
     
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)

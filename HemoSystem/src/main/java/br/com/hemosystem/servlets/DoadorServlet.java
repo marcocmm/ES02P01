@@ -6,7 +6,7 @@
 package br.com.hemosystem.servlets;
 
 import br.com.hemosystem.dao.DoadorDAO;
-import br.com.hemosystem.dao.MunicipioDAO;
+import br.com.hemosystem.dao.CidadeDAO;
 import br.com.hemosystem.model.doacao.Doador;
 import br.com.hemosystem.model.doacao.EstadoCivil;
 import br.com.hemosystem.model.doacao.Sexo;
@@ -14,7 +14,9 @@ import br.com.hemosystem.model.doacao.TipoDocumento;
 import br.com.hemosystem.model.endereco.Endereco;
 import br.com.hemosystem.tools.CalendarioHelper;
 import java.io.IOException;
-import java.io.PrintWriter;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -27,7 +29,7 @@ import javax.servlet.http.HttpServletResponse;
 public class DoadorServlet extends HttpServlet {
 
     Doador doador;
-    MunicipioDAO municipioDAO;
+    CidadeDAO municipioDAO;
     DoadorDAO doadorDAO;
 
     @Override
@@ -43,7 +45,7 @@ public class DoadorServlet extends HttpServlet {
         if (typeRequest.equals("cadastraDoador")) {
 
             doador = new Doador();
-            municipioDAO = new MunicipioDAO();
+            municipioDAO = new CidadeDAO();
             doador.setNomeDoador(request.getParameter("nome"));
             doador.setNomePai(request.getParameter("nomePai"));
             doador.setNomeMae(request.getParameter("nomeMae"));
@@ -80,7 +82,13 @@ public class DoadorServlet extends HttpServlet {
             doador.setNumDocumento(request.getParameter("numeroDocuento"));
             
             doadorDAO = new DoadorDAO();
-            doadorDAO.insert(doador);
+            try {
+                doadorDAO.insert(doador);
+            } catch (SQLException ex) {
+                Logger.getLogger(DoadorServlet.class.getName()).log(Level.SEVERE, null, ex);
+                response.sendError(0, "Erro ao inserir dados");
+            }
+            
             
         }//else
         

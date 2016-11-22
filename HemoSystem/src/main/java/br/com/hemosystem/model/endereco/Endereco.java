@@ -23,7 +23,7 @@ import javax.persistence.OneToOne;
  * @since 29/10/2016
  * @version 1.0
  */
-//@Entity
+@Entity
 public class Endereco implements Serializable{
         
     @Id

@@ -10,6 +10,6 @@ package br.com.hemosystem.model.doacao;
  *
  * @author Leonardo Baiser <lpbaiser@gmail.com>
  */
-enum TipoDoacao {
+public enum TipoDoacao {
     ESPONTANEA, CONVOCADA, REPOSICAO, AUTOLOGA
 }

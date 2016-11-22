@@ -214,8 +214,8 @@ public class CalendarioHelper {
     /**
      * Converte uma String em Date. Formato da String: dd-mm-yyyy
      *
-     * @param date
-     * @return
+     * @param date formato dd-mm-yyyy
+     * @return Date
      */
     public static Date parseDate(String date) {
         String dateParsed[] = date.split("-");
@@ -234,7 +234,7 @@ public class CalendarioHelper {
     /**
      * Converte uma String em Date.
      *
-     * @param date formato dd-mm-yyy
+     * @param date formato dd-mm-yyyy
      * @param time formato 23:59
      * @return
      */

@@ -1,5 +1,6 @@
 package br.com.hemosystem.dao;
 
+import java.sql.SQLException;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.Persistence;
@@ -17,7 +18,7 @@ public abstract class GenericDAO<T> {
         this.clazz = clazz;
     }
 
-    public boolean insert(T entity) {
+    public boolean insert(T entity) throws SQLException{ 
         entityManager.getTransaction().begin();
         entityManager.persist(entity);
         entityManager.getTransaction().commit();
