@@ -5,7 +5,6 @@
     <class>br.com.hemosystem.model.doacao.Doacao</class>
     <class>br.com.hemosystem.model.doacao.Doador</class>
     <class>br.com.hemosystem.model.endereco.Endereco</class>
-    <class>br.com.hemosystem.model.doacao.Triagem</class>
     <class>br.com.hemosystem.model.endereco.Cidade</class>
     <class>br.com.hemosystem.model.endereco.Estado</class>
     <exclude-unlisted-classes>false</exclude-unlisted-classes>

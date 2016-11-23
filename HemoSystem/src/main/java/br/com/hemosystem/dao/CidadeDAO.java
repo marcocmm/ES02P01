@@ -13,7 +13,7 @@ public class CidadeDAO extends GenericDAO<Cidade> {
     public CidadeDAO() {
         super(Cidade.class);
     }
-
+    
     public Cidade obter(String nome, String sigla) {
         Cidade c = null;
         Query q = entityManager.createQuery("SELECT c FROM Cidade c WHERE c.nome = :nome");

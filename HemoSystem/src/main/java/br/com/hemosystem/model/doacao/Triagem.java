@@ -16,12 +16,11 @@ import javax.persistence.Id;
  *
  * @author Leonardo Baiser <lpbaiser@gmail.com>
  */
-@Entity
 public class Triagem implements Serializable{
     
-    @Id
-    @GeneratedValue(strategy=GenerationType.AUTO)
-    private int idTriagem;
+//    @Id
+//    @GeneratedValue(strategy=GenerationType.AUTO)
+//    private int idTriagem;
     private float peso;
     private String hematocrito;
     private String hemoglobina;

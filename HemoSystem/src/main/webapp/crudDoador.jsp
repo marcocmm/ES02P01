@@ -34,7 +34,7 @@
             </div>
             <div class="form-group">
                 <label for="dataNasc">Data de Nascimento</label>
-                <input type="date" class="form-control" name="dataNasc" value="12-07-1995" required="" />
+                <input type="date" class="form-control" name="dataNasc" value="" required="" />
             </div>
             <div class="form-group">
                 <label for="profissao">Profissao</label>

@@ -24,7 +24,7 @@ public class DoadorTest {
     CidadeDAO cidadeDAO;
     DoadorDAO doadorDAO;
     
-//    @Test
+    @Test
     public void testInsertDoador(){
         doador = new Doador();
         cidadeDAO = new CidadeDAO();
@@ -58,7 +58,7 @@ public class DoadorTest {
         }
     }
     
-    @Test
+//    @Test
     public void testObterDoado(){
         doador = new Doador();
         doadorDAO = new DoadorDAO();

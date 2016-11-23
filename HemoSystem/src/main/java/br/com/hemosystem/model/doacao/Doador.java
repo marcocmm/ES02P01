@@ -54,6 +54,7 @@ public class Doador implements Serializable{
     @ElementCollection
     @CollectionTable(name = "doacoes", joinColumns = @JoinColumn(name = "codDoador"))
     private Collection<Doacao> doacoes;
+    
     private Triagem ultimaDoacao;
 
     public String getNomeDoador() {
