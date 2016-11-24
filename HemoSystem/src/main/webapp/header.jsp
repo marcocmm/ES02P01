@@ -21,7 +21,7 @@
             <li><a class="active" href="#">Doador</a>
                 <ul>
                     <li><a href="crudDoador.jsp">Cadastrar Doador</a></li>
-                    <li><a href="#">Consultar Dados</a>
+                    <li><a href="consultarDados.jsp">Consultar Dados</a>
                 </ul>
             </li>
 

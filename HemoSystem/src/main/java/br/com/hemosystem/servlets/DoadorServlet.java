@@ -5,6 +5,7 @@
  */
 package br.com.hemosystem.servlets;
 
+import br.com.hemosystem.controller.DoadorBO;
 import br.com.hemosystem.dao.DoadorDAO;
 import br.com.hemosystem.dao.CidadeDAO;
 import br.com.hemosystem.dao.EstadoDAO;
@@ -68,10 +69,10 @@ public class DoadorServlet extends HttpServlet {
             enderecoComercial.setBairro(request.getParameter("bairroC"));
             enderecoComercial.setNumero(request.getParameter("numeroC"));
             Estado estadoC = estadoDAO.obter(request.getParameter("estadoC"));
-//            enderecoComercial.setMunicipio(municipioDAO.obter(typeRequest, typeRequest)
+            enderecoComercial.setMunicipio(municipioDAO.obter(request.getParameter("cidadeC"), request.getParameter("estadoC")));
             Endereco enderecoResindencial = new Endereco();
             enderecoResindencial.setRua("ruaR");
-//            enderecoComercial.setMunicipio(municipioDAO.obter(request.getParameter("cidadeR")));
+            enderecoComercial.setMunicipio(municipioDAO.obter(request.getParameter("cidadeR"), request.getParameter("estadoR")));
             enderecoResindencial.setNumero("numeroR");
             enderecoResindencial.setBairro("bairroR");
 
@@ -86,14 +87,15 @@ public class DoadorServlet extends HttpServlet {
             doador.setTipoDocumento(TipoDocumento.setTipoDocumento(request.getParameter("tipoDoc")));
 
             doador.setNumDocumento(request.getParameter("numeroDocuento"));
-
-            doadorDAO = new DoadorDAO();
-            try {
-                doadorDAO.insert(doador);
-            } catch (SQLException ex) {
-                Logger.getLogger(DoadorServlet.class.getName()).log(Level.SEVERE, null, ex);
-                response.sendError(0, "Erro ao inserir dados");
+            
+            DoadorBO doadorBO = new DoadorBO();
+            
+            if (doadorBO.insertDoador(doador)){
+                response.sendRedirect("novaDoacao.jsp");
+            }else{
+                response.sendRedirect("paginaErro.jsp");
             }
+
 
         }//else
 
