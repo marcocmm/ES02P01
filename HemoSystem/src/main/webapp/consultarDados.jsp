@@ -11,7 +11,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Consultar Dados</title>
         <jsp:include page="header.jsp"></jsp:include>
-        <script language="JavaScript" type="text/javascript" src="resources/js/mascInput.js"></script>
+        
     </head>
     <body>
 
@@ -34,4 +34,5 @@
             </form>
         </div>
     </body>
+    <script language="JavaScript" type="text/javascript" src="resources/js/mascInput.js"></script>
 </html>

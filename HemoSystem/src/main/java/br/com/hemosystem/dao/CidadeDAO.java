@@ -1,7 +1,7 @@
 package br.com.hemosystem.dao;
 
 import br.com.hemosystem.model.endereco.Cidade;
-import javax.persistence.NoResultException;
+import java.util.List;
 import javax.persistence.Query;
 
 /**
@@ -21,6 +21,12 @@ public class CidadeDAO extends GenericDAO<Cidade> {
 //        q.setParameter("sigla", sigla);
         c = (Cidade) q.getSingleResult();
         return c;
+    }
+    
+    public List<Cidade> listaCidadeByEstado(String sigla){
+        Query q = entityManager.createQuery("SELECT c FROM Cidade c, Estado e WHERE e.uf = :sigla AND c.estado = e.id");
+        q.setParameter("sigla", sigla);
+        return (List<Cidade>) q.getResultList();
     }
 
 }

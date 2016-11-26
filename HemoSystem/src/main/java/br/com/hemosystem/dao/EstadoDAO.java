@@ -12,7 +12,7 @@ import javax.persistence.Query;
 public class EstadoDAO extends GenericDAO<Estado> {
 
     public EstadoDAO() {
-        super(EstadoDAO.class);
+        super(Estado.class);
     }
 
     public Estado obter(String sigla) {

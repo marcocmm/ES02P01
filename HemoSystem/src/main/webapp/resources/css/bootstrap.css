@@ -2548,17 +2548,25 @@ output {
 }
 .form{
     background-color: #fc535e;
-    width: 70%;
-    margin-left: 15%;
-    margin-right: 15%;
+    width: 100%;
+    margin: auto;
+    padding: 1em;
 }
-.form input {
-    max-width: 50%;
+
+#form_coluna1{
+    width: 50%;
+    float: left;
 }
+
+#form_coluna2{
+    width: 50%;
+    float: right;
+}
+
 .form-control {
   display: block;
   width: 100%;
-  max-width: 50%;
+  max-width: 90%;
   height: 34px;
   padding: 6px 12px;
   font-size: 14px;

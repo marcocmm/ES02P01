@@ -13,6 +13,19 @@
         <jsp:include page="header.jsp"></jsp:include>
     </head>
     <body>
-        <h1>Hello World!</h1>
+        
+        <div class="container">
+            
+            <form class="form" method="post" name="formDoacao" action="Doacao.do">
+                <div id="form_coluna1" class="form-group">
+                    <label for="nomeDoador">Nome do Doador</label>
+                    <input type="text" class="form-control" placeholder="Nome do Doador" name="nome" value="Fulano" maxlength="50" required=""/>
+                </div>
+                
+                
+            </form>
+            
+        </div>
+        
     </body>
 </html>

@@ -17,7 +17,7 @@
 
 
         <div class="login-page">
-            <div class="form">
+            <div class="form_login">
                 <form class="login-form">
                     <input type="text" placeholder="username"/>
                     <input type="password" placeholder="password"/>
