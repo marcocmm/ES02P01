@@ -7,13 +7,10 @@ package br.com.hemosystem.servlets;
 
 import br.com.hemosystem.controller.DoadorBO;
 import br.com.hemosystem.dao.DoadorDAO;
-import br.com.hemosystem.dao.CidadeDAO;
-import br.com.hemosystem.dao.EstadoDAO;
 import br.com.hemosystem.model.doador.Doador;
 import br.com.hemosystem.model.doador.EstadoCivil;
 import br.com.hemosystem.model.doador.Sexo;
 import br.com.hemosystem.model.endereco.Endereco;
-import br.com.hemosystem.model.endereco.Estado;
 import br.com.hemosystem.tools.CalendarioHelper;
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -28,9 +25,7 @@ import javax.servlet.http.HttpServletResponse;
 public class DoadorServlet extends HttpServlet {
 
     Doador doador;
-    CidadeDAO municipioDAO;
     DoadorDAO doadorDAO;
-    EstadoDAO estadoDAO;
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -45,8 +40,6 @@ public class DoadorServlet extends HttpServlet {
         if (typeRequest.equals("cadastraDoador")) {
 
             doador = new Doador();
-            municipioDAO = new CidadeDAO();
-            estadoDAO = new EstadoDAO();
             
             doador.setNomeDoador(request.getParameter("nome"));
             doador.setNomePai(request.getParameter("nomePai"));
@@ -64,11 +57,12 @@ public class DoadorServlet extends HttpServlet {
             enderecoComercial.setRua(request.getParameter("ruaC"));
             enderecoComercial.setBairro(request.getParameter("bairroC"));
             enderecoComercial.setNumero(request.getParameter("numeroC"));
-            Estado estadoC = estadoDAO.obter(request.getParameter("estadoC"));
-            enderecoComercial.setMunicipio(municipioDAO.obter(request.getParameter("cidadeC"), request.getParameter("estadoC")));
+            enderecoComercial.setEstado(request.getParameter("estadoC"));
+            enderecoComercial.setCidade(request.getParameter("cidadeC"));
             Endereco enderecoResindencial = new Endereco();
             enderecoResindencial.setRua("ruaR");
-            enderecoComercial.setMunicipio(municipioDAO.obter(request.getParameter("cidadeR"), request.getParameter("estadoR")));
+            enderecoResindencial.setCidade(request.getParameter("cidadeR"));
+            enderecoResindencial.setEstado(request.getParameter("estadoR"));
             enderecoResindencial.setNumero("numeroR");
             enderecoResindencial.setBairro("bairroR");
 

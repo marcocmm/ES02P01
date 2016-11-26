@@ -1,6 +1,5 @@
 package br.com.hemosystem.test.doador;
 
-import br.com.hemosystem.dao.CidadeDAO;
 import br.com.hemosystem.dao.DoadorDAO;
 import br.com.hemosystem.model.doador.Doador;
 import br.com.hemosystem.model.doador.EstadoCivil;
@@ -19,13 +18,11 @@ import org.junit.Test;
 public class DoadorTest {
     
     Doador doador;
-    CidadeDAO cidadeDAO;
     DoadorDAO doadorDAO;
     
 //    @Test
     public void testInsertDoador(){
         doador = new Doador();
-        cidadeDAO = new CidadeDAO();
         doadorDAO = new DoadorDAO();
         
         doador.setNomeDoador("Leonardo Baiser");
@@ -42,16 +39,19 @@ public class DoadorTest {
         doador.setTrabalhoAtual("Técnico em Informática");
         Endereco enderecoComercial = new Endereco();
         enderecoComercial.setBairro("Centro");
-        enderecoComercial.setMunicipio(cidadeDAO.obter("Mamborê", "PR"));
+        enderecoComercial.setCidade("Mambore");
         enderecoComercial.setNumero("620");
         enderecoComercial.setRua("Av. Paulino Ferreira Messias");
+        enderecoComercial.setEstado("PR");
         Endereco enderecoResidencial = new Endereco();
         enderecoResidencial.setBairro("Alto da gloria");
-        enderecoResidencial.setMunicipio(cidadeDAO.obter("Mamborê", "PR"));
+        enderecoResidencial.setCidade("Mambore");
+        enderecoResidencial.setEstado("PR");
         enderecoResidencial.setNumero("123");
         enderecoResidencial.setRua("Av. Manoel F. da Silva");
         
         doador.setEnderecoComercial(enderecoComercial);
+        doador.setEnderecoResidencial(enderecoResidencial);
         
         try {
             doadorDAO.insert(doador);
@@ -61,12 +61,12 @@ public class DoadorTest {
     }
     
 //    @Test
-    public void testObterDoado(){
+    public void testObterDoador(){
         doador = new Doador();
         doadorDAO = new DoadorDAO();
         
         doador = null;
-        doador = doadorDAO.obter("Leonardo Baiser");
+        doador = doadorDAO.obterByNumeroDocumento("123.456.789-10");
         
         Assert.assertTrue(doador != null);
         

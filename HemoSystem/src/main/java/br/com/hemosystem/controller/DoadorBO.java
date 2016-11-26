@@ -1,8 +1,6 @@
 package br.com.hemosystem.controller;
 
-import br.com.hemosystem.dao.CidadeDAO;
 import br.com.hemosystem.dao.DoadorDAO;
-import br.com.hemosystem.dao.EstadoDAO;
 import br.com.hemosystem.model.doador.Doador;
 import br.com.hemosystem.servlets.DoadorServlet;
 import java.sql.SQLException;
@@ -16,9 +14,7 @@ import java.util.logging.Logger;
 public class DoadorBO {
 
     Doador doador;
-    CidadeDAO municipioDAO;
     DoadorDAO doadorDAO;
-    EstadoDAO estadoDAO;
 
     public Boolean insertDoador(Doador doador) {
         doadorDAO = new DoadorDAO();

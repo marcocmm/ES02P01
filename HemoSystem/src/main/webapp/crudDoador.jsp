@@ -4,11 +4,7 @@
     Author     : Leonardo Baiser <lpbaiser@gmail.com>
 --%>
 
-<%@page import="br.com.hemosystem.model.endereco.Cidade"%>
-<%@page import="br.com.hemosystem.dao.CidadeDAO"%>
-<%@page import="br.com.hemosystem.model.endereco.Estado"%>
 <%@page import="java.util.List"%>
-<%@page import="br.com.hemosystem.dao.EstadoDAO"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>

@@ -10,7 +10,6 @@ import br.com.hemosystem.model.doacao.Reacoes;
 import br.com.hemosystem.model.doacao.TipoDoacao;
 import br.com.hemosystem.model.doacao.Triagem;
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.logging.Level;
@@ -37,10 +36,10 @@ public class DoacaoTest {
         doadorDAO = new DoadorDAO();
 
         doacao.setData(new Date());
-        doacao.setNomeHospital("Hospital Teste2");
+        doacao.setNomeHospital("Hospital Teste1");
         doacao.setNomeRespCad("Carlos da Conceição");
         doacao.setProcedimento(Procedimento.COLETA_CONVENCIONAL);
-        doacao.setTipoDoacao(TipoDoacao.CONVOCADA);
+        doacao.setTipoDoacao(TipoDoacao.ESPONTANEA);
 
         doador = doadorDAO.obterByNumeroDocumento("123.456.789-10");
         
@@ -53,8 +52,8 @@ public class DoacaoTest {
         triagem.setPeso(70);
         triagem.setPressaoArterial(12);
         triagem.setPulso(8);
-        triagem.setReacoes(Reacoes.LEVE);
-        triagem.setTemperatura((float) 36.8);
+        triagem.setReacoes(Reacoes.NENHUMA);
+        triagem.setTemperatura((float) 36);
         
         doacao.setTriagem(triagem);
 

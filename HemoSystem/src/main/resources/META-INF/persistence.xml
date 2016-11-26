@@ -4,8 +4,6 @@
     <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
     <class>br.com.hemosystem.model.doacao.Doacao</class>
     <class>br.com.hemosystem.model.doador.Doador</class>
-    <class>br.com.hemosystem.model.endereco.Cidade</class>
-    <class>br.com.hemosystem.model.endereco.Estado</class>
     <exclude-unlisted-classes>false</exclude-unlisted-classes>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/hemosystem?zeroDateTimeBehavior=convertToNull"/>

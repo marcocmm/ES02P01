@@ -17,9 +17,26 @@ import java.io.Serializable;
 public class Endereco implements Serializable{
         
     private String rua;
-    private Cidade municipio;
     private String bairro;
     private String numero;
+    private String estado;
+    private String cidade;
+
+    public String getEstado() {
+        return estado;
+    }
+
+    public void setEstado(String estado) {
+        this.estado = estado;
+    }
+
+    public String getCidade() {
+        return cidade;
+    }
+
+    public void setCidade(String cidade) {
+        this.cidade = cidade;
+    }
 
     public String getRua() {
         return rua;
@@ -27,14 +44,6 @@ public class Endereco implements Serializable{
 
     public void setRua(String rua) {
         this.rua = rua;
-    }
-
-    public Cidade getMunicipio() {
-        return municipio;
-    }
-
-    public void setMunicipio(Cidade municipio) {
-        this.municipio = municipio;
     }
 
     public String getBairro() {
