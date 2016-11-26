@@ -79,7 +79,7 @@ public class DoadorServlet extends HttpServlet {
             DoadorBO doadorBO = new DoadorBO();
             
             if (doadorBO.insertDoador(doador)){
-                response.sendRedirect("novaDoacao.jsp");
+                response.sendRedirect("crudDoador.jsp");
             }else{
                 response.sendRedirect("paginaErro.jsp");
             }

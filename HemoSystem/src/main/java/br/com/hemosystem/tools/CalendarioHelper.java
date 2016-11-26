@@ -214,9 +214,9 @@ public class CalendarioHelper {
     }
 
     /**
-     * Converte uma String em Date. Formato da String: dd-mm-yyyy
+     * Converte uma String em Date. Formato da String: yyyy-mm-dd
      *
-     * @param date formato dd-mm-yyyy
+     * @param date formato yyyy-mm-dd
      * @return Date
      */
     public static Date parseDate(String date) {
