@@ -1,23 +1,20 @@
-package br.com.hemosystem.model.doacao;
+package br.com.hemosystem.model.doador;
 
+import br.com.hemosystem.model.doacao.Doacao;
 import br.com.hemosystem.model.endereco.Endereco;
 import java.io.Serializable;
 import java.util.Collection;
 import java.util.Date;
+import java.util.List;
 import javax.persistence.CascadeType;
-import javax.persistence.CollectionTable;
 import javax.persistence.Column;
-import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
-import javax.persistence.ForeignKey;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-import org.eclipse.persistence.annotations.CascadeOnDelete;
 
 /**
  *
@@ -41,21 +38,17 @@ public class Doador implements Serializable{
     private String email;
     private String telefone;
     
-    @OneToOne(cascade = CascadeType.ALL, mappedBy = "doador")
     private Endereco enderecoComercial;
-    @OneToOne(cascade = CascadeType.ALL, mappedBy = "doador")
     private Endereco enderecoResidencial;
     private EstadoCivil estadoCivil;
     private String trabalhoAtual;
-    private TipoDocumento tipoDocumento;
     @Column(unique = true)
     private String numDocumento;
     
-    @ElementCollection
-    @CollectionTable(name = "doacoes", joinColumns = @JoinColumn(name = "codDoador"))
-    private Collection<Doacao> doacoes;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "doador")
+    private List<Doacao> doacoes;
     
-    private Triagem ultimaDoacao;
+    private Doacao ultimaDoacao;
 
     public String getNomeDoador() {
         return nomeDoador;
@@ -161,14 +154,6 @@ public class Doador implements Serializable{
         this.trabalhoAtual = trabalhoAtual;
     }
 
-    public TipoDocumento getTipoDocumento() {
-        return tipoDocumento;
-    }
-
-    public void setTipoDocumento(TipoDocumento tipoDocumento) {
-        this.tipoDocumento = tipoDocumento;
-    }
-
     public String getNumDocumento() {
         return numDocumento;
     }
@@ -186,15 +171,15 @@ public class Doador implements Serializable{
         return doacoes;
     }
 
-    public void setDoacoes(Collection<Doacao> doacoes) {
+    public void setDoacoes(List<Doacao> doacoes) {
         this.doacoes = doacoes;
     }
 
-    public Triagem getUltimaDoacao() {
+    public Doacao getUltimaDoacao() {
         return ultimaDoacao;
     }
 
-    public void setUltimaDoacao(Triagem ultimaDoacao) {
+    public void setUltimaDoacao(Doacao ultimaDoacao) {
         this.ultimaDoacao = ultimaDoacao;
     }
 

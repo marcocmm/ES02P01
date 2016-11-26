@@ -116,21 +116,8 @@
                 <input type="text" class="form-control" placeholder="Trabalho Atual" name="trabalhoAtual" value="Quebrar Pedra" maxlength="50" required="" />
             </div>
             <div class="form-group">
-                <label for="tipoDoc">Tipo Documento:</label>
-                <select class="form-control" name="tipoDoc">
-                    <option value="ssp" >SSP</option>
-                    <option value="cpf" >CPF</option>
-                    <option value="mt" >MT</option>
-                    <option value="prf" >PRF</option>
-                    <option value="oab" >OAB</option>
-                    <option value="crm" >CRM</option>
-                    <option value="crea" >CREA</option>
-                    <option value="cnh" >CNH</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label for="numeroDocumento">Nº Documento</label>
-                <input type="text" class="form-control" placeholder="Número do Documento" name="numeroDocuento" value="123.456.789-10" maxlength="50" required="" />
+                <label for="numeroDocumento">Nº CPF</label>
+                <input type="text" class="form-control" placeholder="Número do CPF" name="numeroDocuento" value="123.456.789-10" maxlength="50" required="" />
             </div>
             <input type="hidden" value="cadastraDoador" name="typeRequest"/>
             <input class="btn btn-success" style="width: 100%" type="submit" id="submitData" value="Cadastrar"/>

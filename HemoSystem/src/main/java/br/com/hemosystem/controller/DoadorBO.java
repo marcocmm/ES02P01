@@ -3,7 +3,7 @@ package br.com.hemosystem.controller;
 import br.com.hemosystem.dao.CidadeDAO;
 import br.com.hemosystem.dao.DoadorDAO;
 import br.com.hemosystem.dao.EstadoDAO;
-import br.com.hemosystem.model.doacao.Doador;
+import br.com.hemosystem.model.doador.Doador;
 import br.com.hemosystem.servlets.DoadorServlet;
 import java.sql.SQLException;
 import java.util.logging.Level;
@@ -30,5 +30,8 @@ public class DoadorBO {
         }
         return true;
     }
-
+    
+    public static Doador getDadosDoador(String cpf){
+        return null;
+    }
 }

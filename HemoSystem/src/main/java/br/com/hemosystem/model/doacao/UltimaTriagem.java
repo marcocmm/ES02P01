@@ -6,6 +6,7 @@
 
 package br.com.hemosystem.model.doacao;
 
+import br.com.hemosystem.model.doador.Doador;
 import java.util.Collection;
 
 /**

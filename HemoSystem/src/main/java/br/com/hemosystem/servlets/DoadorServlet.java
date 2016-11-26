@@ -9,17 +9,13 @@ import br.com.hemosystem.controller.DoadorBO;
 import br.com.hemosystem.dao.DoadorDAO;
 import br.com.hemosystem.dao.CidadeDAO;
 import br.com.hemosystem.dao.EstadoDAO;
-import br.com.hemosystem.model.doacao.Doador;
-import br.com.hemosystem.model.doacao.EstadoCivil;
-import br.com.hemosystem.model.doacao.Sexo;
-import br.com.hemosystem.model.doacao.TipoDocumento;
+import br.com.hemosystem.model.doador.Doador;
+import br.com.hemosystem.model.doador.EstadoCivil;
+import br.com.hemosystem.model.doador.Sexo;
 import br.com.hemosystem.model.endereco.Endereco;
 import br.com.hemosystem.model.endereco.Estado;
 import br.com.hemosystem.tools.CalendarioHelper;
 import java.io.IOException;
-import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -83,8 +79,6 @@ public class DoadorServlet extends HttpServlet {
             doador.setEstadoCivil(EstadoCivil.setEstadoCivil(request.getParameter("estadoCivil")));
 
             doador.setTrabalhoAtual(request.getParameter("trabalhoAtual"));
-
-            doador.setTipoDocumento(TipoDocumento.setTipoDocumento(request.getParameter("tipoDoc")));
 
             doador.setNumDocumento(request.getParameter("numeroDocuento"));
             

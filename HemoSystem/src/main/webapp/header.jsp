@@ -12,6 +12,7 @@
         <link rel="stylesheet" href="resources/css/header.css">
         <link rel="stylesheet" href="resources/css/styleMenu.css">
         <link rel="stylesheet" href="resources/css/bootstrap.css">
+        <link rel="stylesheet" href="resources/css/style.css">
         <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
     <div class="header textHeader">HemoSystem</div>
 

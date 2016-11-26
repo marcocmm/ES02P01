@@ -1,0 +1,32 @@
+th{
+    background-color: #fc535e;
+    text-align: left;
+    font-size: 12pt;
+    
+}
+
+table{
+    width: 60%;
+    font-family: 'Open Sans';
+}
+
+td{
+    border: 1px solid black;
+}
+th,td{
+    padding-left: 1%;
+    height: 40px;
+}
+
+th{
+    width: 30%;
+    border: 1px solid #fc535e;
+}
+
+.titleTable{
+    background-color: #fc535e;
+    font-size: 16pt;
+    font-weight: bold;
+    text-align: center;
+    height: 50px;
+}

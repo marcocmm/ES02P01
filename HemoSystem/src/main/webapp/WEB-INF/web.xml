@@ -4,9 +4,17 @@
         <servlet-name>Doador</servlet-name>
         <servlet-class>br.com.hemosystem.servlets.DoadorServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ConsultaDoacoesServlet</servlet-name>
+        <servlet-class>br.com.hemosystem.servlets.ConsultaDoacoesServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Doador</servlet-name>
         <url-pattern>/Doador.do</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ConsultaDoacoesServlet</servlet-name>
+        <url-pattern>/ConsultaDoacoes.do</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

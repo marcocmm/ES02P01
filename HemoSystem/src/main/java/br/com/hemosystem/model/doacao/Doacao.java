@@ -3,28 +3,30 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package br.com.hemosystem.model.doacao;
 
+import br.com.hemosystem.model.doador.Doador;
 import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-import org.eclipse.persistence.annotations.PrimaryKey;
 
 /**
  *
  * @author Leonardo Baiser <lpbaiser@gmail.com>
  */
 @Entity
-public class Doacao implements Serializable{
-    
+public class Doacao implements Serializable {
+
     @Id
-    @GeneratedValue(strategy=GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private String codDoacao;
     private TipoDoacao tipoDoacao;
     private String nomeHospital;
@@ -32,7 +34,27 @@ public class Doacao implements Serializable{
     private String nomeRespCad;
     @Temporal(TemporalType.DATE)
     private Date data;
-    
+    private Triagem triagem;
+
+    @JoinColumn(referencedColumnName = "codDoador")
+    @ManyToOne(optional = false)
+    private Doador doador;
+
+    public Doador getDoador() {
+        return doador;
+    }
+
+    public void setDoador(Doador doador) {
+        this.doador = doador;
+    }
+
+    public Triagem getTriagem() {
+        return triagem;
+    }
+
+    public void setTriagem(Triagem triagem) {
+        this.triagem = triagem;
+    }
 
     public TipoDoacao getTipoDoacao() {
         return tipoDoacao;
@@ -77,6 +99,5 @@ public class Doacao implements Serializable{
     public String getCodDoacao() {
         return codDoacao;
     }
-
 
 }

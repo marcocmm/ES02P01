@@ -14,6 +14,7 @@
   -moz-box-sizing: border-box;
   box-sizing: border-box;
   z-index: 10;
+  
 }
 #cssmenu:after,
 #cssmenu > ul:after {
@@ -30,6 +31,7 @@
 #cssmenu {
   font-family: 'Open Sans';
   background: #ba221d;
+  margin-bottom: 2em;
   /*background-color: rgba(197, 43, 130, 1); COR OUTUBRO ROSA*/
 }
 #cssmenu > ul > li {

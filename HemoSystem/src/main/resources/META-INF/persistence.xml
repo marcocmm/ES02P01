@@ -3,8 +3,7 @@
   <persistence-unit name="UP" transaction-type="RESOURCE_LOCAL">
     <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
     <class>br.com.hemosystem.model.doacao.Doacao</class>
-    <class>br.com.hemosystem.model.doacao.Doador</class>
-    <class>br.com.hemosystem.model.endereco.Endereco</class>
+    <class>br.com.hemosystem.model.doador.Doador</class>
     <class>br.com.hemosystem.model.endereco.Cidade</class>
     <class>br.com.hemosystem.model.endereco.Estado</class>
     <exclude-unlisted-classes>false</exclude-unlisted-classes>

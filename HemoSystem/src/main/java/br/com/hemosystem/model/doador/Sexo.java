@@ -1,4 +1,4 @@
-package br.com.hemosystem.model.doacao;
+package br.com.hemosystem.model.doador;
 
 /**
  *
