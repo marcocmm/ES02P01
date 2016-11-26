@@ -112,7 +112,7 @@
                 </div>
 
                 <input type="hidden" value="cadastraDoador" name="typeRequest"/>
-                <input class="btn btn-success" style="width: 100%" type="submit" id="submitData" value="Cadastrar"/>
+                <input class="btn btn-success" style="width: 100%" type="submit" id="submitData" value="Cadastrar Doador"/>
             </form>
         </div>
         <script language="JavaScript" type="text/javascript" src="resources/js/mascInput.js"></script>

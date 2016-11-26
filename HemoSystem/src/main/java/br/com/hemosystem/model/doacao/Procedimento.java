@@ -11,5 +11,15 @@ package br.com.hemosystem.model.doacao;
  * @author Leonardo Baiser <lpbaiser@gmail.com>
  */
 public enum Procedimento {
-    COLETA_CONVENCIONAL, AFERESE
+    COLETA_CONVENCIONAL("Coleta Convencional"), AFERESE("Aferese");
+    
+     private String value;
+
+    private Procedimento(String val) {
+        this.value = val;
+    }
+
+    public String getProcedimento() {
+        return value;
+    }
 }

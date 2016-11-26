@@ -55,9 +55,9 @@ function validarData(dataNasc) {
     }
 }
 
-function test(estado){
-    alert("estado selecionado: " + estado.value);
-    var e = estado.value;
+function test(){
+    alert("estado selecionado: ");
+    
     
 }
 

@@ -11,7 +11,17 @@ package br.com.hemosystem.model.doador;
  */
 public enum EstadoCivil {
 
-    SOLTEIRO, CASADO, DIVORCIADO, VIÚVO, SEPARADO, COMPANHEIRO;
+    SOLTEIRO("Solteiro"), CASADO("Casado"), DIVORCIADO("Divorciado"), VIUVO("Viúvo"), SEPARADO("Separado"), COMPANHEIRO("Companheiro");
+    
+     private String value;
+
+    private EstadoCivil(String val) {
+        this.value = val;
+    }
+
+    public String getEstadoCivil() {
+        return value;
+    }
 
     public static EstadoCivil setEstadoCivil(String estadoCivil) {
         switch (estadoCivil) {
@@ -22,7 +32,7 @@ public enum EstadoCivil {
             case "divorciado":
                 return EstadoCivil.DIVORCIADO;
             case "viuvo":
-                return EstadoCivil.VIÚVO;
+                return EstadoCivil.VIUVO;
             case "separado":
                 return EstadoCivil.SEPARADO;
             case "companheiro":
