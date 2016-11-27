@@ -4,6 +4,10 @@
     Author     : Leonardo Baiser <lpbaiser@gmail.com>
 --%>
 
+<%
+    session = request.getSession();
+%>
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -14,6 +18,18 @@
         <link rel="stylesheet" href="resources/css/bootstrap.css">
         <link rel="stylesheet" href="resources/css/style.css">
         <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+
+
+    <%        
+        if (session.getAttribute("login") != null) {
+            String login = (String) session.getAttribute("loginId");
+                out.println("<div class=\"loginHeader\">");
+                out.println("<a href=\"Login.do?typeRequest=logout\">Logout</a>");
+                out.println("<p>Você está logado como: "+login+" </p>");
+                out.println("</div>");
+        }
+    %>
+
     <div class="header textHeader">HemoSystem</div>
 
     <nav id="cssmenu">
@@ -26,8 +42,6 @@
             </li>
             <li><a href="novaDoacao.jsp">Nova Doação</a></li>
             <li><a href="inserirTriagem.jsp">Triagem</a></li>
-            <li><a href="Login.do?typeRequest=logout">Sair</a></li>
-
             </li>
         </ul>
     </nav>

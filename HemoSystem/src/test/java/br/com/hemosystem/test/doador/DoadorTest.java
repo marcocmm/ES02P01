@@ -20,7 +20,7 @@ public class DoadorTest {
     Doador doador;
     DoadorDAO doadorDAO;
     
-//    @Test
+    @Test
     public void testInsertDoador(){
         doador = new Doador();
         doadorDAO = new DoadorDAO();

@@ -29,7 +29,7 @@ public class DoacaoTest {
     DoadorDAO doadorDAO;
     Triagem triagem;
 
-//    @Test
+    @Test
     public void testInsertDoacao() {
         doacaoDAO = new DoacaoDAO();
         doadorDAO = new DoadorDAO();
@@ -125,6 +125,17 @@ public class DoacaoTest {
             System.out.println("Doacao: " + doacao1.getCodDoacao());
         }
         Assert.assertTrue(doacaos != null);
+    }
+    
+//    @Test
+    public void testObterDoacao(){
+        doacaoDAO = new DoacaoDAO();
+        
+        Doacao doacao = null;
+        doacao = doacaoDAO.obter(2);
+        
+        Assert.assertTrue(doacao != null);
+        
     }
 
 }

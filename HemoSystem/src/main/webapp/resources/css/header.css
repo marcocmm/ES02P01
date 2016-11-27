@@ -19,14 +19,14 @@ body{
     width: 100%;
     background-color: #fc535e;
     margin: 0 auto;
-    
+
 }
 @font-face {
 
-      font-family: "BLOODY";
-      src: url("../fonts/BLOODY.TTF") format("truetype");
+    font-family: "BLOODY";
+    src: url("../fonts/BLOODY.TTF") format("truetype");
 
-      }
+}
 
 .textHeader{
     font-size: 86px;
@@ -34,4 +34,37 @@ body{
     text-align: center;
     padding-top: 1em;
     padding-bottom: 1em;
+}
+
+.loginHeader{
+    height: 22px;
+    background-color: gray;
+}
+.loginHeader p{
+    font-weight: bold;
+    text-align: center;
+    color: #FFFFFF;
+    font-family: 'Open Sans';
+    font-size: 12pt;
+    float: right;
+    margin-right: 1%;
+}
+
+.loginHeader a{
+    font-weight: bold;
+    text-align: center;
+    color: #FFFFFF;
+    font-family: 'Open Sans';
+    font-size: 12pt;
+    margin-right: 10%;
+    float: right;
+    text-decoration: none;
+    background-color:#ba221d; 
+    padding:0px 20px 0px 20px;
+}
+
+.loginHeader a:hover{
+    color: #000;
+    background-color: #fc535e;  
+    text-decoration: none;
 }

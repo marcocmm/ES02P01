@@ -11,6 +11,7 @@ import br.com.hemosystem.model.doacao.Doacao;
 import br.com.hemosystem.model.doador.Doador;
 import java.io.IOException;
 import java.util.List;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -56,7 +57,9 @@ public class ConsultaDoacoesServlet extends HttpServlet {
                         consultaSession.setAttribute("ultimaDoacao", doacao);
                         response.sendRedirect("consultaDadosUltimaDoacao.jsp");
                     } else {
-                        response.sendRedirect("paginaErro.jsp");
+                        request.setAttribute("mensagem", "Nenhum dado encontrado");
+                        RequestDispatcher dis = request.getRequestDispatcher("consultaDadosUltimaDoacao.jsp");
+                        dis.forward(request, response);
                     }
 
                 } else if (tipoDocao.equals("dadosDoador")) {
@@ -66,11 +69,18 @@ public class ConsultaDoacoesServlet extends HttpServlet {
 
                 } else if (tipoDocao.equals("dadosTodasDoacoes")) {
                     List<Doacao> doacoes = DoacaoBO.getTodasDoacoes(cpf);
-                    consultaSession.setAttribute("dadosTodasDoacoes", doacoes);
-                    response.sendRedirect("consultaDadosTodasDoacoes.jsp");
-                    
+                    if (!doacoes.isEmpty() || doacoes != null) {
+                        consultaSession.setAttribute("dadosTodasDoacoes", doacoes);
+                        response.sendRedirect("consultaDadosTodasDoacoes.jsp");
+                    } else {
+                        request.setAttribute("mensagem", "Nenhum dado encontrado");
+                        RequestDispatcher dis = request.getRequestDispatcher("consultaDadosTodasDoacoes.jsp");
+                        dis.forward(request, response);
+
+                    }
+
                 }
-            }//else se cpf vazio
+            }
 
         }
 

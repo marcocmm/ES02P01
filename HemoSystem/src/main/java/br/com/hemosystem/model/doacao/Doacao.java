@@ -27,7 +27,7 @@ public class Doacao implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private String codDoacao;
+    private int codDoacao;
     private TipoDoacao tipoDoacao;
     private String nomeHospital;
     private Procedimento procedimento;
@@ -96,7 +96,7 @@ public class Doacao implements Serializable {
         this.data = data;
     }
 
-    public String getCodDoacao() {
+    public int getCodDoacao() {
         return codDoacao;
     }
 

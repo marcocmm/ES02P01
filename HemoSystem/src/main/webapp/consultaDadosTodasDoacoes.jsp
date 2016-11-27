@@ -31,6 +31,7 @@
         <body>
 
             <div class="container">
+                <p class="message" >${mensagem}</p> <br>
             <%                HttpSession consultaSession = request.getSession();
                 List<Doacao> doacoes = (List<Doacao>) consultaSession.getAttribute("dadosTodasDoacoes");
 

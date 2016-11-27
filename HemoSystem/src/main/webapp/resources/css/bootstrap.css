@@ -3037,7 +3037,7 @@ select[multiple].input-lg {
           user-select: none;
   background-image: none;
   border: 1px solid transparent;
-  border-radius: 4px;
+  border-radius: 0px;
 }
 .btn:focus,
 .btn:active:focus,
@@ -3190,7 +3190,7 @@ fieldset[disabled] .btn-primary.focus {
 }
 .btn-success {
   color: #fff;
-  background-color: #5cb85c;
+  background-color: #4CAF50;
   border-color: #4cae4c;
 }
 .btn-success:focus,

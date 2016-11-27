@@ -12,7 +12,7 @@ import org.junit.Test;
  */
 public class LoginTest {
 
-//    @Test
+    @Test
     public void insertLoginGerente() {
         Login login = new Login();
         LoginDAO loginDAO = new LoginDAO();
@@ -24,7 +24,7 @@ public class LoginTest {
 
     }
 
-//    @Test
+    @Test
     public void insertLoginFuncionario() {
         Login login = new Login();
         LoginDAO loginDAO = new LoginDAO();

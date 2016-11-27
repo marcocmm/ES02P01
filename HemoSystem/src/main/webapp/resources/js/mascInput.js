@@ -7,7 +7,7 @@ function mascaraCPF(cpf) {
 }
 
 //valida o CPF digitado
-function validarCPF(Objcpf) {
+function validarCPF(Objcpf, nameInput) {
     var cpf = Objcpf.value;
     exp = /\.|\-/g
     cpf = cpf.toString().replace(exp, "");
@@ -26,6 +26,7 @@ function validarCPF(Objcpf) {
     var digitoGerado = (soma1 * 10) + soma2;
     if (digitoGerado != digitoDigitado)
         alert('CPF Invalido!');
+        document.getElementById("cpf").value="";
 }
 
 function validarData(dataNasc) {
@@ -59,5 +60,16 @@ function test(){
     alert("estado selecionado: ");
     
     
+}
+
+function formatar(mascara, documento){
+  var i = documento.value.length;
+  var saida = mascara.substring(0,1);
+  var texto = mascara.substring(i)
+  
+  if (texto.substring(0,1) != saida){
+            documento.value += texto.substring(0,1);
+  }
+  
 }
 

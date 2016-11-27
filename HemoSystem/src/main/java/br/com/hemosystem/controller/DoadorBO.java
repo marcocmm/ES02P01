@@ -26,8 +26,17 @@ public class DoadorBO {
         }
         return true;
     }
-    
-    public static Doador getDadosDoador(String cpf){
+
+    public static Doador getDadosDoador(String cpf) {
         return null;
     }
+
+    public static Boolean existsDoador(String cpf) {
+        DoadorDAO doadorDAO = new DoadorDAO();
+        if (doadorDAO.obterByNumeroDocumento(cpf) != null) {
+            return true;
+        }
+        return false;
+    }
+
 }

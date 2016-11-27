@@ -23,17 +23,18 @@
         <title>Triagem</title>
         <link rel="stylesheet" href="resources/css/toggle_switch.css">
         <jsp:include page="header.jsp"></jsp:include>
-    </head>
-    <body>
+        </head>
+        <body>
 
 
-        <div class="container">
+            <div class="container">
 
-            <form class="form" method="post" name="formDoacao" action="Triagem.do">
+                <form class="form" method="post" name="formDoacao" action="Triagem.do">
+                    <p class="message" >${mensagem}</p> <br>
 
                 <div id="form_coluna1" class="form-group">
                     <label for="cpfDoador">Cpf do Doador</label>
-                    <input type="text" class="form-control" placeholder="cpf do doador" name="cpf" pattern="\d{3}\.\d{3}\.\d{3}-\d{2}" title="Digite o CPF no formato nnn.nnn.nnn-nn" value="123.456.789-10" maxlength="50" required=""/>
+                    <input type="text" class="form-control" placeholder="cpf do doador" name="cpf" id="cpf" onblur="validarCPF(this)" onkeypress="formatar('###.###.###-##', this)" maxlength="14" required=""/>
                 </div>
                 <div id="form_coluna2" class="form-group">
                     <label for="codDoacao">Cód. Doacao</label>
@@ -64,7 +65,7 @@
                     <label for="pressaoArterial">Pressao Arterial</label>
                     <input type="text" class="form-control" placeholder="pressao arterial do doador" name="pressaoArterial" value="" maxlength="50" required=""/>
                 </div>
-                
+
                 <div id="form_coluna2" class="form-group">
                     <label for="aptidao">Aptidão</label><br>
                     <label class="switch">
@@ -73,7 +74,7 @@
                     </label>
                 </div>
                 <div id="form_coluna1" class="form-group">
-                        <label for="reacoes">Reação</label>
+                    <label for="reacoes">Reação</label>
                     <%
                         out.println("<select class=\"form-control\" name=\"tipoReacao\"/>");
                         out.println("<option value=\"\">Selecione</option>");
@@ -85,13 +86,14 @@
                         out.println("</select>");
                     %>
                 </div>
-                
+
                 <input type="hidden" value="insereTriagem" name="typeRequest"/>
                 <input class="btn btn-success" style="width: 100%" type="submit" id="submitData" value="Inserir Triagem"/>
 
 
             </form>
         </div>
+        <script language="JavaScript" type="text/javascript" src="resources/js/mascInput.js"></script>
 
     </body>
 </html>

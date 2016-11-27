@@ -13,6 +13,7 @@ import br.com.hemosystem.model.doador.Sexo;
 import br.com.hemosystem.model.endereco.Endereco;
 import br.com.hemosystem.tools.CalendarioHelper;
 import java.io.IOException;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -40,7 +41,7 @@ public class DoadorServlet extends HttpServlet {
         if (typeRequest.equals("cadastraDoador")) {
 
             doador = new Doador();
-            
+
             doador.setNomeDoador(request.getParameter("nome"));
             doador.setNomePai(request.getParameter("nomePai"));
             doador.setNomeMae(request.getParameter("nomeMae"));
@@ -75,15 +76,17 @@ public class DoadorServlet extends HttpServlet {
             doador.setTrabalhoAtual(request.getParameter("trabalhoAtual"));
 
             doador.setNumDocumento(request.getParameter("numeroDocuento"));
-            
-            DoadorBO doadorBO = new DoadorBO();
-            
-            if (doadorBO.insertDoador(doador)){
-                response.sendRedirect("crudDoador.jsp");
-            }else{
-                response.sendRedirect("paginaErro.jsp");
-            }
 
+            DoadorBO doadorBO = new DoadorBO();
+
+            if (doadorBO.insertDoador(doador)) {
+                request.setAttribute("mensagem", "Doador inserido com sucesso!");
+
+            } else {
+                request.setAttribute("mensagem", "Ops houve um erro!");
+            }
+            RequestDispatcher dis = request.getRequestDispatcher("crudDoador.jsp");
+            dis.forward(request, response);
 
         }//else
 

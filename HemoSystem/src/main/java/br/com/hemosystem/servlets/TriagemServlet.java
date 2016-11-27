@@ -6,12 +6,14 @@
 package br.com.hemosystem.servlets;
 
 import br.com.hemosystem.controller.DoacaoBO;
+import br.com.hemosystem.controller.DoadorBO;
 import br.com.hemosystem.model.doacao.Reacoes;
 import br.com.hemosystem.model.doacao.Triagem;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -54,14 +56,25 @@ public class TriagemServlet extends HttpServlet {
             String cpfDoador = request.getParameter("cpf");
             int idDoacao = Integer.parseInt(request.getParameter("codDoacao"));
 
-            try {
-                DoacaoBO.insertTriagem(triagem, idDoacao, cpfDoador);
-            } catch (Exception ex) {
-                Logger.getLogger(TriagemServlet.class.getName()).log(Level.SEVERE, null, ex);
-                response.sendRedirect("paginaErro.jsp");
+            if (DoadorBO.existsDoador(cpfDoador)) {
+                if (DoacaoBO.existsDoacao(idDoacao)) {
+
+                    try {
+                        DoacaoBO.insertTriagem(triagem, idDoacao, cpfDoador);
+                    } catch (Exception ex) {
+                        Logger.getLogger(TriagemServlet.class.getName()).log(Level.SEVERE, null, ex);
+                        response.sendRedirect("paginaErro.jsp");
+                        request.setAttribute("mensagem", "Houve um erro ao inserir a triagem!");
+                    }
+                    request.setAttribute("mensagem", "Triagem inserida com sucesso!");
+                } else {
+                    request.setAttribute("mensagem", "Código da doação inserido é inválido");
+                }
+            } else {
+                request.setAttribute("mensagem", "CPF do usuário inserido é inválido");
             }
-            response.sendRedirect("novaDoacao.jsp");
-            
+            RequestDispatcher dis = request.getRequestDispatcher("inserirTriagem.jsp");
+            dis.forward(request, response);
 
         }
 

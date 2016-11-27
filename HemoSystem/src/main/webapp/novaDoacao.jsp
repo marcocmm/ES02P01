@@ -27,12 +27,13 @@
             <div class="container">
 
                 <form class="form" method="post" name="formDoacao" action="Doacao.do">
-                    <div id="form_coluna1" class="form-group">
-                        <label for="cpfDoador">Cpf do Doador</label>
-                        <input type="text" class="form-control" placeholder="cpf do doador" name="cpf" value="123.456.789-10" maxlength="50" required=""/>
-                    </div>  
-                    <div id="form_coluna2" class="form-group">
-                        <label for="tipoDoacao">Tipo de Doação</label>
+                    <p class="message" >${mensagem}</p> <br>
+                <div id="form_coluna1" class="form-group">
+                    <label for="cpfDoador">Cpf do Doador</label>
+                    <input type="text" class="form-control" placeholder="cpf do doador" name="cpf" id="cpf" onblur="validarCPF(this)" onkeypress="formatar('###.###.###-##', this)" maxlength="14" required=""/>
+                </div>  
+                <div id="form_coluna2" class="form-group">
+                    <label for="tipoDoacao">Tipo de Doação</label>
                     <%
                         out.println("<select class=\"form-control\" name=\"tipoDoacao\"/>");
                         out.println("<option value=\"\">Selecione</option>");
@@ -79,6 +80,7 @@
             </form>
 
         </div>
+        <script language="JavaScript" type="text/javascript" src="resources/js/mascInput.js"></script>
 
     </body>
 </html>

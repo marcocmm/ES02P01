@@ -24,13 +24,14 @@
 
         <div class="container">
             <form class="form" name="formCadastro" method="post" action="Doador.do">
+                <p class="message" >${mensagem}</p> <br>
                 <div id="form_coluna1" class="form-group">
                     <label for="nomeDoador">Nome do Doador</label>
                     <input type="text" class="form-control" placeholder="Nome do Doador" name="nome" value="Fulano" maxlength="50" required=""/>
                 </div>
                 <div id="form_coluna2" class="form-group">
                     <label for="numeroDocumento">Nº CPF</label>
-                    <input type="text" class="form-control" placeholder="Número do CPF" name="numeroDocuento" value="123.456.789-10" maxlength="50" required=""  />
+                    <input type="text" class="form-control" placeholder="Número do CPF" name="numeroDocuento" id="cpf" value="" onblur="validarCPF(this)" onkeypress="formatar('###.###.###-##', this)" maxlength="14" required=""  />
                 </div>
                 <div id="form_coluna2" class="form-group">
                     <label for="nomedoPaiDoador">Nome do Pai</label>

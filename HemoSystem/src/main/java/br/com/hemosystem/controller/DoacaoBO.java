@@ -52,4 +52,12 @@ public class DoacaoBO {
         doadorDAO.update(doador);
     }
 
+    public static Boolean existsDoacao(int idDoacao) {
+        DoacaoDAO doacaoDAO = new DoacaoDAO();
+        if (doacaoDAO.obter(idDoacao)!= null) {
+            return true;
+        }
+        return false;
+    }
+
 }

@@ -23,7 +23,8 @@
         </head>
         <body>
 
-            <div class="table-responsive">
+            <div class="table-responsive container">
+                <p class="message" >${mensagem}</p> <br>
             <%
                 HttpSession consultaSession = request.getSession();
                 Doacao doacao = (Doacao) consultaSession.getAttribute("ultimaDoacao");
