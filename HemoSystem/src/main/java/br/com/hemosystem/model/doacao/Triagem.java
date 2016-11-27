@@ -19,7 +19,7 @@ public class Triagem implements Serializable{
     private String hemoglobina;
     private float pulso;
     private float temperatura;
-    private int pressaoArterial;
+    private String pressaoArterial;
     private boolean aptidao;
     private Reacoes reacoes;
 
@@ -63,11 +63,11 @@ public class Triagem implements Serializable{
         this.temperatura = temperatura;
     }
 
-    public int getPressaoArterial() {
+    public String getPressaoArterial() {
         return pressaoArterial;
     }
 
-    public void setPressaoArterial(int pressaoArterial) {
+    public void setPressaoArterial(String pressaoArterial) {
         this.pressaoArterial = pressaoArterial;
     }
 

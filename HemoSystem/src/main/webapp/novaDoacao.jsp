@@ -27,7 +27,7 @@
                     <div id="form_coluna2" class="form-group">
                         <label for="tipoDoacao">Tipo de Doação</label>
                     <%
-                        out.println("<select class=\"form-control\" name=\"tipoDoacao\">");
+                        out.println("<select class=\"form-control\" name=\"tipoDoacao\"/>");
                         out.println("<option value=\"\">Selecione</option>");
                         for (TipoDoacao tipo : TipoDoacao.values()) {
                             out.println("<option value=\"" + tipo + "\">");

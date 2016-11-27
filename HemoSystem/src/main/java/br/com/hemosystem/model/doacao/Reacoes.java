@@ -21,4 +21,20 @@ public enum Reacoes {
     public String getReacao() {
         return value;
     }
+
+    public static Reacoes setReacao(String reacao) {
+        switch (reacao) {
+            case "NENHUMA":
+                return Reacoes.NENHUMA;
+            case "LEVE":
+                return Reacoes.LEVE;
+            case "MODERADA":
+                return Reacoes.MODERADA;
+            case "GRAVE":
+                return Reacoes.GRAVE;
+            default:
+                return null;
+        }
+    }
+
 }

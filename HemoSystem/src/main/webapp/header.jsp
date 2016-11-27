@@ -18,13 +18,14 @@
 
     <nav id="cssmenu">
         <ul>
-            <li><a href="novaDoacao.jsp">Nova Doação</a></li>
             <li><a class="active" href="#">Doador</a>
                 <ul>
                     <li><a href="crudDoador.jsp">Cadastrar Doador</a></li>
                     <li><a href="consultarDados.jsp">Consultar Dados</a>
                 </ul>
             </li>
+            <li><a href="novaDoacao.jsp">Nova Doação</a></li>
+            <li><a href="inserirTriagem.jsp">Triagem</a></li>
 
             </li>
         </ul>

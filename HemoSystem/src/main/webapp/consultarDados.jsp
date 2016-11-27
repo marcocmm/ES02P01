@@ -17,11 +17,11 @@
 
         <div class="container">
             <form class="form" name="formPesquisa" method="post" action="ConsultaDoacoes.do">
-                <div class="form-group">
+                <div id="form_coluna1" class="form-group">
                     <label for="cpfDoador">Cpf doador: </label>
                     <input type="text" class="form-control" placeholder="cpf do doador" name="cpf" value="" maxlength="14" required="" />
                 </div>
-                <div class="form-group">
+                <div id="form_coluna2" class="form-group">
                     <label for="dados">Tipo Consulta</label>
                     <select class="form-control" name="tipoConsulta">
                         <option value="dadosUltimaDoacao" >Dados da Última Doação</option>

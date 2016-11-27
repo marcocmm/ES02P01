@@ -12,6 +12,10 @@
         <servlet-name>DoacaoServlet</servlet-name>
         <servlet-class>br.com.hemosystem.servlets.DoacaoServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>TriagemServlet</servlet-name>
+        <servlet-class>br.com.hemosystem.servlets.TriagemServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Doador</servlet-name>
         <url-pattern>/Doador.do</url-pattern>
@@ -23,6 +27,10 @@
     <servlet-mapping>
         <servlet-name>DoacaoServlet</servlet-name>
         <url-pattern>/Doacao.do</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>TriagemServlet</servlet-name>
+        <url-pattern>/Triagem.do</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
