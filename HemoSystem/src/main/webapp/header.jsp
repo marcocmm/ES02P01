@@ -26,6 +26,7 @@
             </li>
             <li><a href="novaDoacao.jsp">Nova Doação</a></li>
             <li><a href="inserirTriagem.jsp">Triagem</a></li>
+            <li><a href="Login.do?typeRequest=logout">Sair</a></li>
 
             </li>
         </ul>

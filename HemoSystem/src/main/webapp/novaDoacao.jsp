@@ -3,7 +3,14 @@
     Created on : 06/11/2016, 13:35:46
     Author     : Leonardo Baiser <lpbaiser@gmail.com>
 --%>
-
+<%
+    session = request.getSession();
+    if (session.getAttribute("login") == null) {
+        request.setAttribute("mensagem", "Precisa estar logado!");
+        RequestDispatcher dis = request.getRequestDispatcher("login.jsp");
+        dis.forward(request, response);
+    }
+%>
 <%@page import="br.com.hemosystem.model.doacao.Procedimento"%>
 <%@page import="br.com.hemosystem.model.doacao.TipoDoacao"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>

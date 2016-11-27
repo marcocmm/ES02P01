@@ -1,12 +1,24 @@
+<%
+    session = request.getSession();
+    TipoLogin tipoLogin = (TipoLogin) session.getAttribute("tipoLogin");
+    Boolean isLogado = (Boolean) session.getAttribute("logado");
+    if (session.getAttribute("login") == null) {
+        response.sendRedirect("login.jsp");
+    }
+%>
 <%-- 
     Document   : consultaDadosExames
     Created on : 29/10/2016, 20:25:46
     Author     : Leonardo Baiser <lpbaiser@gmail.com>
 --%>
 
+<%@page import="br.com.hemosystem.model.gerencial.TipoLogin"%>
 <%@page import="java.util.List"%>
 <%@page import="br.com.hemosystem.model.doacao.Doacao"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+
+
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -19,8 +31,7 @@
         <body>
 
             <div class="container">
-            <%
-                HttpSession consultaSession = request.getSession();
+            <%                HttpSession consultaSession = request.getSession();
                 List<Doacao> doacoes = (List<Doacao>) consultaSession.getAttribute("dadosTodasDoacoes");
 
                 int cont = 0;
@@ -85,8 +96,8 @@
             %>
 
         </div>
-            
-            <div class="footer"></div>
+
+        <div class="footer"></div>
 
 
 

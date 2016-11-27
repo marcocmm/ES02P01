@@ -1,15 +1,32 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package br.com.hemosystem.model.gerencial;
 
 /**
  *
  * @author Leonardo Baiser <lpbaiser@gmail.com>
  */
-enum TipoLogin {
-    GERENTE, FUNCIONARIO
+public enum TipoLogin {
+
+    GERENTE("Gerente"), FUNCIONARIO("Funcionario");
+
+    private String value;
+
+    private TipoLogin(String val) {
+        this.value = val;
+    }
+
+    public String getTipoLogin() {
+        return value;
+    }
+
+    public static TipoLogin setTipoLogin(String tipoLogin) {
+        switch (tipoLogin) {
+            case "GERENTE":
+                return TipoLogin.GERENTE;
+            case "FUNCIONARIO":
+                return TipoLogin.FUNCIONARIO;
+            default:
+                return null;
+        }
+    }
+
 }

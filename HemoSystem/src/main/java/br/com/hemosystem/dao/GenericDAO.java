@@ -48,8 +48,8 @@ public abstract class GenericDAO<T> {
         entityManager.clear();
         return (T) entityManager.find(clazz, id);
     }
-
-    public T obter(T entity) {
+    
+      public T obter(T entity) {
         entityManager.clear();
         return (T) entityManager.find(clazz, entity);
     }

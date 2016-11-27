@@ -3,7 +3,14 @@
     Created on : 29/10/2016, 20:25:29
     Author     : Leonardo Baiser <lpbaiser@gmail.com>
 --%>
-
+<%
+    session = request.getSession();
+    if (session.getAttribute("login") == null) {
+        request.setAttribute("mensagem", "Precisa estar logado!");
+        RequestDispatcher dis = request.getRequestDispatcher("login.jsp");
+        dis.forward(request, response);
+    }
+%>
 <%@page import="java.util.List"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -119,16 +126,16 @@
         <script language="JavaScript" type="text/javascript" src="resources/js/cidade_estados.js"></script>
 
         <script language="JavaScript" type="text/javascript" charset="utf-8">
-                            new dgCidadesEstados({
-                                cidade: document.getElementById('cidadeR'),
-                                estado: document.getElementById('estadoR')
-                            })
+                        new dgCidadesEstados({
+                            cidade: document.getElementById('cidadeR'),
+                            estado: document.getElementById('estadoR')
+                        })
         </script>
         <script language="JavaScript" type="text/javascript" charset="utf-8">
-                            new dgCidadesEstados({
-                                cidade: document.getElementById('cidadeC'),
-                                estado: document.getElementById('estadoC')
-                            })
+            new dgCidadesEstados({
+                cidade: document.getElementById('cidadeC'),
+                estado: document.getElementById('estadoC')
+            })
         </script>
 
     </body>

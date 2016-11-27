@@ -27,34 +27,36 @@ public class DoacaoTest {
     DoacaoDAO doacaoDAO;
     Doador doador;
     DoadorDAO doadorDAO;
+    Triagem triagem;
 
 //    @Test
     public void testInsertDoacao() {
-        doacao = new Doacao();
-        doador = new Doador();
         doacaoDAO = new DoacaoDAO();
         doadorDAO = new DoadorDAO();
 
+        doacao = new Doacao();
+        doador = new Doador();
+
         doacao.setData(new Date());
         doacao.setNomeHospital("Hospital Teste1");
-        doacao.setNomeRespCad("Carlos da Conceição");
+        doacao.setNomeRespCad("João da Silva");
         doacao.setProcedimento(Procedimento.COLETA_CONVENCIONAL);
         doacao.setTipoDoacao(TipoDoacao.ESPONTANEA);
 
         doador = doadorDAO.obterByNumeroDocumento("123.456.789-10");
-        
+
         doacao.setDoador(doador);
 
-        Triagem triagem = new Triagem();
+        triagem = new Triagem();
         triagem.setAptidao(true);
         triagem.setHematocrito("hematocrito");
         triagem.setHemoglobina("hemoglobina");
         triagem.setPeso(70);
-        triagem.setPressaoArterial(12);
+        triagem.setPressaoArterial("12/8");
         triagem.setPulso(8);
         triagem.setReacoes(Reacoes.NENHUMA);
         triagem.setTemperatura((float) 36);
-        
+
         doacao.setTriagem(triagem);
 
         doador.setUltimaDoacao(doacao);
@@ -62,23 +64,60 @@ public class DoacaoTest {
         List<Doacao> doacoes = doacaoDAO.listaDoacoes(doador.getNumDocumento());
 
         doacoes.add(doacao);
-        
+
         doador.setDoacoes(doacoes);
-       
-        
+
         try {
             doacaoDAO.insert(doacao);
         } catch (SQLException ex) {
             Logger.getLogger(DoacaoTest.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
-        
+
+        doacao = new Doacao();
+        doador = new Doador();
+
+        doacao.setData(new Date());
+        doacao.setNomeHospital("Hospital Teste1");
+        doacao.setNomeRespCad("João da Silva");
+        doacao.setProcedimento(Procedimento.COLETA_CONVENCIONAL);
+        doacao.setTipoDoacao(TipoDoacao.REPOSICAO);
+
+        doador = doadorDAO.obterByNumeroDocumento("123.456.789-10");
+
+        doacao.setDoador(doador);
+
+        triagem = new Triagem();
+        triagem.setAptidao(true);
+        triagem.setHematocrito("hematocrito");
+        triagem.setHemoglobina("hemoglobina");
+        triagem.setPeso(70);
+        triagem.setPressaoArterial("12/8");
+        triagem.setPulso(8);
+        triagem.setReacoes(Reacoes.NENHUMA);
+        triagem.setTemperatura((float) 36.5);
+
+        doacao.setTriagem(triagem);
+
+        doador.setUltimaDoacao(doacao);
+
+        doacoes = doacaoDAO.listaDoacoes(doador.getNumDocumento());
+
+        doacoes.add(doacao);
+
+        doador.setDoacoes(doacoes);
+
+        try {
+            doacaoDAO.insert(doacao);
+        } catch (SQLException ex) {
+            Logger.getLogger(DoacaoTest.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
     }
-    
+
 //    @Test
-    public void testListaDoacoes(){
+    public void testListaDoacoes() {
         doacaoDAO = new DoacaoDAO();
-        
+
         List<Doacao> doacaos = null;
         doacaos = DoacaoBO.getTodasDoacoes("123.456.789-10");
 //        doacaos = doacaoDAO.listaDoacoes("123.456.789-10");
