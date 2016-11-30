@@ -18,7 +18,12 @@ public class LoginTest {
         login.setLogin("lpbaiser");
         login.setSenha("1207");
         login.setTipoLogin(TipoLogin.GERENTE);
-        LoginBO.inserirLoginBD(login);
+        Boolean canDoLogin = LoginBO.canDoLogin(login.getLogin(), login.getSenha());
+        if (!canDoLogin) {
+            LoginBO.inserirLoginBD(login);
+        }
+        canDoLogin = LoginBO.canDoLogin(login.getLogin(), login.getSenha());
+        Assert.assertTrue(canDoLogin);
     }
 
     @Test
@@ -27,18 +32,31 @@ public class LoginTest {
         login.setLogin("lpbaiser2");
         login.setSenha("1207");
         login.setTipoLogin(TipoLogin.FUNCIONARIO);
-        LoginBO.inserirLoginBD(login);
+        Boolean canDoLogin = LoginBO.canDoLogin(login.getLogin(), login.getSenha());
+        if (!canDoLogin) {
+            LoginBO.inserirLoginBD(login);
+        }
+        canDoLogin = LoginBO.canDoLogin(login.getLogin(), login.getSenha());
+        Assert.assertTrue(canDoLogin);
     }
 
     @Test
     public void testLoginFuncionario() {
         Boolean canDoLogin = LoginBO.canDoLogin("lpbaiser2", "1207");
+        if (!canDoLogin) {
+            insertLoginFuncionario();
+        }
+        canDoLogin = LoginBO.canDoLogin("lpbaiser2", "1207");
         Assert.assertTrue(canDoLogin);
     }
 
     @Test
     public void loginLoginGerente() {
         Boolean canDoLogin = LoginBO.canDoLogin("lpbaiser", "1207");
+        if (!canDoLogin) {
+            insertLoginGerente();
+        }
+        canDoLogin = LoginBO.canDoLogin("lpbaiser", "1207");
         Assert.assertTrue(canDoLogin);
     }
 

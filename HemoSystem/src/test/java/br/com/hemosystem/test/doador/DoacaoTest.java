@@ -12,6 +12,8 @@ import br.com.hemosystem.model.doacao.Triagem;
 import java.sql.SQLException;
 import java.util.Date;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -33,6 +35,18 @@ public class DoacaoTest {
 
         DoadorDAO doadorDAO = new DoadorDAO();
         Doador doador = doadorDAO.obterByNumeroDocumento("123.456.789-10");
+
+        if (doador == null) {
+            Doador doador1 = new Doador();
+            doador1.setNumDocumento("123.456.789-10");
+            try {
+                doadorDAO.insert(doador);
+            } catch (SQLException ex) {
+                Assert.fail();
+            }
+            doador = doadorDAO.obterByNumeroDocumento("123.456.789-10");
+        }
+
         doacao.setDoador(doador);
 
         Triagem triagem = new Triagem();
@@ -101,13 +115,13 @@ public class DoacaoTest {
         for (Doacao doacao : doacaos) {
             System.out.println("Doacao: " + doacao.getCodDoacao());
         }
-        Assert.assertTrue(doacaos != null);
+        Assert.assertNotNull(doacaos);
     }
 
     @Test
     public void testObterDoacao() {
         DoacaoDAO doacaoDAO = new DoacaoDAO();
-        Doacao doacao = doacaoDAO.obter(151);
-        Assert.assertTrue(doacao != null);
+        List<Doacao> list = doacaoDAO.list();
+        Assert.assertNotNull(list);
     }
 }

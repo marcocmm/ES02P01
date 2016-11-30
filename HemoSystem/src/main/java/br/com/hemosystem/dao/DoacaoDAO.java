@@ -11,7 +11,7 @@ import javax.persistence.Query;
 public class DoacaoDAO extends GenericDAO<Doacao> {
 
     public DoacaoDAO() {
-        super(DoacaoDAO.class);
+        super(Doacao.class);
     }
 
     public List<Doacao> listaDoacoes(String numDocDoador) {
