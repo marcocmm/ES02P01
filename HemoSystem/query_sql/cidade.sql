@@ -6,17 +6,16 @@ SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 -- Table structure for table `CIDADE` (ID, NOME, ESTADO)
 --
 
--- CREATE TABLE `CIDADE` (
---   `ID` int(11) NOT NULL,
---   `NOME` varchar(100) NOT NULL,
---   `ESTADO` int(11) NOT NULL,
---   PRIMARY KEY (`ID`),
---   KEY `fk_CIDADE_estado` (`ESTADO`)
--- ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+ CREATE TABLE `CIDADE` (
+   `ID` int(11) NOT NULL,
+   `NOME` varchar(100) NOT NULL,
+   `ESTADO` int(11) NOT NULL,
+   PRIMARY KEY (`ID`),
+   KEY `fk_CIDADE_estado` (`ESTADO`)
+ ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
---
 -- Dumping data for table `CIDADE` (ID, NOME, ESTADO)
---
+
 
 INSERT INTO `CIDADE` (ID, NOME, ESTADO) VALUES(3, 'Brasiléia', 1);
 INSERT INTO `CIDADE` (ID, NOME, ESTADO) VALUES(4, 'Bujari', 1);

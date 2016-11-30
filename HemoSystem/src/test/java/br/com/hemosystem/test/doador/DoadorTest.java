@@ -1,13 +1,12 @@
 package br.com.hemosystem.test.doador;
 
+import br.com.hemosystem.controller.DoadorBO;
 import br.com.hemosystem.dao.DoadorDAO;
 import br.com.hemosystem.model.doador.Doador;
 import br.com.hemosystem.model.doador.EstadoCivil;
 import br.com.hemosystem.model.doador.Sexo;
 import br.com.hemosystem.model.endereco.Endereco;
 import br.com.hemosystem.tools.CalendarioHelper;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -16,15 +15,12 @@ import org.junit.Test;
  * @author Leonardo Baiser <lpbaiser@gmail.com>
  */
 public class DoadorTest {
-    
-    Doador doador;
-    DoadorDAO doadorDAO;
-    
+
     @Test
-    public void testInsertDoador(){
-        doador = new Doador();
-        doadorDAO = new DoadorDAO();
-        
+    public void testInsertDoador() {
+        DoadorDAO doadorDAO = new DoadorDAO();
+
+        Doador doador = new Doador();
         doador.setNomeDoador("Leonardo Baiser");
         doador.setNomePai("Aguinaldo Baiser");
         doador.setNomeMae("SIlvana Baiser");
@@ -37,50 +33,44 @@ public class DoadorTest {
         doador.setTelefone("44 99478968");
         doador.setNumDocumento("123.456.789-10");
         doador.setTrabalhoAtual("Técnico em Informática");
+
         Endereco enderecoComercial = new Endereco();
         enderecoComercial.setBairro("Centro");
         enderecoComercial.setCidade("Mambore");
         enderecoComercial.setNumero("620");
         enderecoComercial.setRua("Av. Paulino Ferreira Messias");
         enderecoComercial.setEstado("PR");
+        doador.setEnderecoComercial(enderecoComercial);
+
         Endereco enderecoResidencial = new Endereco();
         enderecoResidencial.setBairro("Alto da gloria");
         enderecoResidencial.setCidade("Mambore");
         enderecoResidencial.setEstado("PR");
         enderecoResidencial.setNumero("123");
         enderecoResidencial.setRua("Av. Manoel F. da Silva");
-        
-        doador.setEnderecoComercial(enderecoComercial);
         doador.setEnderecoResidencial(enderecoResidencial);
-        
+
         try {
-            doadorDAO.insert(doador);
+            boolean insert = doadorDAO.insert(doador);
+            Assert.assertTrue(insert);
         } catch (Exception ex) {
-            Logger.getLogger(DoadorTest.class.getName()).log(Level.SEVERE, null, ex);
+            Boolean existsDoador = DoadorBO.existsDoador("123.456.789-10");
+            Assert.assertTrue(existsDoador);
         }
     }
-    
-//    @Test
-    public void testObterDoador(){
-        doador = new Doador();
-        doadorDAO = new DoadorDAO();
-        
-        doador = null;
-        doador = doadorDAO.obterByNumeroDocumento("123.456.789-10");
-        
-        Assert.assertTrue(doador != null);
-        
-    }
-//    @Test
-    public void testObterDoadorCpf(){
-         doador = new Doador();
-        doadorDAO = new DoadorDAO();
-        
-        doador = null;
-        doador = doadorDAO.getUltimaDoacao("123.456.789-10");
-        
+
+    @Test
+    public void testObterDoador() {
+        DoadorDAO doadorDAO = new DoadorDAO();
+        Doador doador = doadorDAO.obterByNumeroDocumento("123.456.789-10");
         Assert.assertTrue(doador != null);
     }
-    
+
+    @Test
+    public void testObterUltimaDoacao() {
+        DoadorDAO doadorDAO = new DoadorDAO();
+        doadorDAO.getUltimaDoacao("123.456.789-10");
+        Assert.fail();
+    }
 
 }

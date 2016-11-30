@@ -1,7 +1,6 @@
 package br.com.hemosystem.dao;
 
 import br.com.hemosystem.model.doacao.Doacao;
-import br.com.hemosystem.model.doador.Doador;
 import java.util.List;
 import javax.persistence.Query;
 
