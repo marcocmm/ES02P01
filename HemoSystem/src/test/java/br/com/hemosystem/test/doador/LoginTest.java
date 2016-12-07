@@ -26,7 +26,6 @@ public class LoginTest {
         Assert.assertTrue(canDoLogin);
     }
 
-    @Test
     public void insertLoginFuncionario() {
         Login login = new Login();
         login.setLogin("lpbaiser2");
@@ -40,7 +39,6 @@ public class LoginTest {
         Assert.assertTrue(canDoLogin);
     }
 
-    @Test
     public void testLoginFuncionario() {
         Boolean canDoLogin = LoginBO.canDoLogin("lpbaiser2", "1207");
         if (!canDoLogin) {
@@ -50,7 +48,6 @@ public class LoginTest {
         Assert.assertTrue(canDoLogin);
     }
 
-    @Test
     public void loginLoginGerente() {
         Boolean canDoLogin = LoginBO.canDoLogin("lpbaiser", "1207");
         if (!canDoLogin) {

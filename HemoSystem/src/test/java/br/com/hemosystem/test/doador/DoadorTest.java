@@ -16,7 +16,6 @@ import org.junit.Test;
  */
 public class DoadorTest {
 
-    @Test
     public void testInsertDoador() {
         DoadorDAO doadorDAO = new DoadorDAO();
 
@@ -59,7 +58,6 @@ public class DoadorTest {
         }
     }
 
-    @Test
     public void testObterDoador() {
         DoadorDAO doadorDAO = new DoadorDAO();
         Doador doador = doadorDAO.obterByNumeroDocumento("123.456.789-10");
@@ -70,7 +68,6 @@ public class DoadorTest {
         Assert.assertNotNull(doador);
     }
 
-    @Test
     public void testObterUltimaDoacao() {
         DoadorDAO doadorDAO = new DoadorDAO();
         doadorDAO.getUltimaDoacao("123.456.789-10");

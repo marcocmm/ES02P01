@@ -12,10 +12,7 @@ import br.com.hemosystem.model.doacao.Triagem;
 import java.sql.SQLException;
 import java.util.Date;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import org.junit.Assert;
-import org.junit.Test;
 
 /**
  *
@@ -23,7 +20,6 @@ import org.junit.Test;
  */
 public class DoacaoTest {
 
-    @Test
     public void testInsertDoacao() {
         DoacaoDAO doacaoDAO = new DoacaoDAO();
         Doacao doacao = new Doacao();
@@ -108,7 +104,6 @@ public class DoacaoTest {
 
     }
 
-    @Test
     public void testListaDoacoes() {
         List<Doacao> doacaos = DoacaoBO.getTodasDoacoes("123.456.789-10");
 
@@ -118,7 +113,6 @@ public class DoacaoTest {
         Assert.assertNotNull(doacaos);
     }
 
-    @Test
     public void testObterDoacao() {
         DoacaoDAO doacaoDAO = new DoacaoDAO();
         List<Doacao> list = doacaoDAO.list();
